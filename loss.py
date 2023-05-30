@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 # mse = mean square error
 def mse(y_true, y_pred):

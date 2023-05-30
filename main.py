@@ -42,3 +42,30 @@ class ActivationLayer(Layer):
     # learning_rate is not used because there is no "learnable" parameters.
     def backward_propagation(self, output_error, learning_rate):
         return self.activation_prime(self.input) * output_error
+    
+
+class Network:
+    def __init__(self):
+        self.layers = []
+        self.loss = None
+        self.loss_prime = None
+
+    
+    def add(self, layer):
+        self.layers.append(layer)
+
+    
+    def use(self, loss, loss_prime):
+        self.loss = loss
+        self.loss_prime = loss_prime
+
+
+    def predict(self, input_data):
+        result = []
+
+        # Run network 
+        for i in range(len(input_data)):
+            # Forward propagate
+            output = input_data[i]
+            for layer in self.layers:
+                output = layer.forward_propagate(output)
