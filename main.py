@@ -63,9 +63,35 @@ class Network:
     def predict(self, input_data):
         result = []
 
-        # Run network 
+        # Run the input_data through the network individually
+        # AKA forward propagate the input all the way to the output layer
         for i in range(len(input_data)):
             # Forward propagate
             output = input_data[i]
             for layer in self.layers:
                 output = layer.forward_propagate(output)
+            result.append(output)
+        return result
+    
+
+    # x_train = training_input
+    # y_train = training_output
+    def fit(self, x_train, y_train, epochs, learning_rate):
+        for epoch in range(epochs):
+            err = 0
+            for i in range(len(x_train)):
+                # Forward propagation
+                output = x_train[i]
+                for layer in self.layers:
+                    layer.forward_propagation(output)
+
+                err +=self.loss(y_train[i], output)
+
+                # Backward propagation
+                error = self.loss_prime(y_train[i], output)
+                for layer in reversed(self.layers):
+                    error = layer.backward_propagation(error, layer)
+
+            # Calculate avg error of all samples
+            err /= len(x_train)
+            print(f"epoch = {epoch + 1}/{epochs} error = {err}")
