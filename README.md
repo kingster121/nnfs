@@ -2,6 +2,7 @@
 Here, the purpose is to create a simple neural network without reliance on ML frameworks, using as much of plain vanilla Python as possible.
 \
 \
+Source: [Medium - Neural Network from Scratch](https://towardsdatascience.com/math-neural-network-from-scratch-in-python-d6da9f29ce65)\
 TL;DR: Run either the mnist.py or xor.py
 
 ## Steps and Explanation
