@@ -1,5 +1,8 @@
 # Neural Network From Scratch
 Here, the purpose is to create a simple neural network without reliance on ML frameworks, using as much of plain vanilla Python as possible.
+\
+\
+TL;DR: Run either the mnist.py or xor.py
 
 ## Steps and Explanation
 1. Forward propagation is about making propagations
@@ -16,6 +19,8 @@ E.g. In the second layer, there is 4 neurons and in the third layer, there is 8 
 1. Prevent explosion and drowning out of the other weight/biases
 2. Non-linear activation function is commonly used so that they can 'compound' on one another to fit any type of data
 ## Backward propagation
-Main objective is to find how sensitive is the cost to the change in weights and biases. Put simply, dC/dW or dC/dB. And to find this, it is just a shit ton of chain rule.
-![alt](/math_annotation.png)
-To this
+Very maths heavy. But the essence is just finding the dW/dC and dB/dC by applying chain rules to those further up the layers. 
+\
+Mathematical derivation: [Deriving backpropagation](https://www.youtube.com/watch?v=XE3krf3CQls&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU&index=25)
+\
+Visual/Intuition: [3Blue1Brown backpropagation intuitions](https://www.youtube.com/watch?v=tIeHLnjs5U8&t=385s)
